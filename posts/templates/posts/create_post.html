@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Create a New Post</h1>
+    <form class="needs-validation" novalidate method="post" action="{% url 'add-post' user.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create Post</button>
+    </form>
+    <a href="{% url 'home' %}">Return</a>
+{% endblock %}

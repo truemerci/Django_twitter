@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home - Mini twitter
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Mini twitter</h1>
+        <p class="lead">Share your thoughts</p>
+        <hr class="my-4">
+        <p>Join our community and start tweeting today!</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'add-post' user.id %}" role="button">Create Post</a>
+    </div>
+{% endblock %}

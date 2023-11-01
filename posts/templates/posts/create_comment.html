@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <h1>{{ post.title }}</h1>
+            <p class="post-content">
+                {{ post.content|slice:"0:500" }}{% if post.content|length > 500 %}...{% endif %}
+            </p>
+            <p>Author: {{ post.user.username }}</p>
+        </div>
+    </div>
+    <h2>Add Comment</h2>
+    <form class="needs-validation" novalidate method="post" action="{% url 'add-comment' post_id=post.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+    <a href="{% url 'post-detail' post.id %}">Return</a>
+{% endblock %}

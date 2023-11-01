@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Users List</h1>
+    <ul class="list-group">
+        {% for user in object_list %}
+            <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>{{ user.username }}</h2>
+                    <span class="badge badge-primary badge-pill"><a href="{% url 'user-detail' user.id %}">Details</a></span>
+                </div>
+                <p>Email: {{ user.email }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
